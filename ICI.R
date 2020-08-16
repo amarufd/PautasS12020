@@ -48,4 +48,38 @@ for (estadistica in estadisticas) {
 
 
 
+###
+# pregunta 2
+listaoficios <- list()
+for(documento in listaDocumentos){
+  if(documento[1] == "of"){
+    # variable que detecta si encontro o no un oficio
+    encontro <- F
+    # revisando si la estadistica tiene datos
+    if(length(listaoficios) != 0){
+      # revisando las estadisticas guardadas
+      for (posicionoficios in 1:length(listaoficios)) {
+        # se sacan los elementos de  la lista
+        oficiounlist <- unlist(listaoficios[posicionoficios])
+        # se revisa si la estadistica existe y se actualiza
+        if(oficiounlist[1] == documento[2]){
+          listaoficios[posicionoficios] <- list(c(oficiounlist, documento[3]))
+          encontro <- T
+        }
+      }
+    }
+    # se crea una nuevoficio
+    if(!encontro){
+      listaoficios <- c(listaoficios,list(c(documento[2],documento[3])))
+    }
+  }
+}
+
+# imprimiendo oficios
+for (oficio in listaoficios) {
+  print(oficio)
+}
+
+
+
 
