@@ -80,6 +80,28 @@ for (oficio in listaoficios) {
   print(oficio)
 }
 
+sample(0:1,1)
+
+###
+# pregunta 3
+aprobados <- 0
+rechazados <- 0
+conteooficios <- 0
+for(documento in listaDocumentos){
+  if(documento[1] == "of"){
+    # el juez
+    juez <- sample(0:1,1)
+    if(juez == 1){
+      aprobados <- aprobados + 1
+    }else{
+      rechazados <- rechazados + 1
+    }
+    # se suma un oficio
+    conteooficios <- conteooficios + 1
+  }
+}
+# imprimiendo respuestas del juez
+paste("Llegaron", conteooficios ,"oficios de los cuales:", aprobados ,"son  aprobados y", rechazados ,"rechazados")
 
 
 
